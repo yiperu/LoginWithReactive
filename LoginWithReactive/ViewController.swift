@@ -8,11 +8,40 @@
 
 import UIKit
 
+import ReactiveCocoa
+
+
+
+
+
+
+
 class ViewController: UIViewController {
 
+  
+  @IBOutlet weak var usernameTextField: UITextField!
+  @IBOutlet weak var passwordTextField: UITextField!
+  
+  @IBOutlet weak var signInButton: UIButton!
+  @IBOutlet weak var signInFailureText: UILabel!
+  
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
+    
+    
+      // = = = =  Play With Reactive = = = =
+    // 1er Ejemplo;
+    var validUsernameSignal =
+    self.usernameTextField.rac_textSignal().subscribeNext { (valor : AnyObject!) -> Void in
+      println(valor)
+    }
+    // - - - -
+
+    
+    
+    
   }
 
   override func didReceiveMemoryWarning() {

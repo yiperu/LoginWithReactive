@@ -109,6 +109,12 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Reactive Sign In" id="eoK-Iz-cGM"/>
+                    <connections>
+                        <outlet property="passwordTextField" destination="9Tr-B5-yC6" id="wgG-Zt-SIT"/>
+                        <outlet property="signInButton" destination="6GS-cU-Y2c" id="LQv-Z3-90f"/>
+                        <outlet property="signInFailureText" destination="sQT-bM-JVg" id="SCu-iU-C0h"/>
+                        <outlet property="usernameTextField" destination="QAQ-JI-oxS" id="XRr-j5-3Wh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>

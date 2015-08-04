@@ -32,19 +32,33 @@ class ViewController: UIViewController {
     
     
       // = = = =  Play With Reactive = = = =
-    // First Ejemplo;
+    // First Example;
 //    var validUsernameSignal =
 //    self.usernameTextField.rac_textSignal().subscribeNext { (valor : AnyObject!) -> Void in
 //      println(valor)
 //    }
     // - - - -
-    // Second Ejemplo;
-    self.usernameTextField.rac_textSignal().filter { (valor: AnyObject!) -> Bool in
+    // Second Example;
+//    self.usernameTextField.rac_textSignal().filter { (valor: AnyObject!) -> Bool in
+//      var text = valor as! String
+//        return count(text) > 3
+//      } .subscribeNext { (valor: AnyObject!) -> Void in
+//      println(valor)
+//    }
+    // - - - -
+    // Third Example;
+    var usernameSourceSignal:RACSignal = self.usernameTextField.rac_textSignal()
+    var filteresUserName:RACSignal = usernameSourceSignal.filter { (valor: AnyObject!) -> Bool in
       var text = valor as! String
-        return count(text) > 3
-      } .subscribeNext { (valor: AnyObject!) -> Void in
+      return count(text) > 3
+    }
+    
+//    var finalSignal:RACSignal =
+    filteresUserName.subscribeNext { (valor: AnyObject!) -> Void in
       println(valor)
     }
+    
+    
     
     
     

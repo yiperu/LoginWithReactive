@@ -47,17 +47,27 @@ class ViewController: UIViewController {
 //    }
     // - - - -
     // Third Example;
-    var usernameSourceSignal:RACSignal = self.usernameTextField.rac_textSignal()
-    var filteresUserName:RACSignal = usernameSourceSignal.filter { (valor: AnyObject!) -> Bool in
-      var text = valor as! String
-      return count(text) > 3
-    }
+//    var usernameSourceSignal:RACSignal = self.usernameTextField.rac_textSignal()
+//    var filteresUserName:RACSignal = usernameSourceSignal.filter { (valor: AnyObject!) -> Bool in
+//      var text = valor as! String
+//      return count(text) > 3
+//    }
+//    
+//    // var finalSignal:RACSignal =
+//    filteresUserName.subscribeNext { (valor: AnyObject!) -> Void in
+//      println(valor)
+//    }
+    // - - - -
+    // Fourth Example; (For now don't run)
+//        self.usernameTextField.rac_textSignal().filter { (text: String!) -> Bool in
+//            return count(text) > 3
+//          } .subscribeNext { (valor: String!) -> Void in
+//          println(valor)
+//        }
+    // - - - -
+    // Fifth Example; (For now don't run)
     
-//    var finalSignal:RACSignal =
-    filteresUserName.subscribeNext { (valor: AnyObject!) -> Void in
-      println(valor)
-    }
-    
+
     
     
     

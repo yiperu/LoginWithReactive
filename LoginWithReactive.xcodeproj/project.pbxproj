@@ -13,6 +13,9 @@
 		1EEFF35C1B705F650036CD6C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EEFF35B1B705F650036CD6C /* Images.xcassets */; };
 		1EEFF35F1B705F650036CD6C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EEFF35D1B705F650036CD6C /* LaunchScreen.xib */; };
 		1EEFF36B1B705F650036CD6C /* LoginWithReactiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEFF36A1B705F650036CD6C /* LoginWithReactiveTests.swift */; };
+		1EEFF3781B7062A80036CD6C /* Box.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EEFF3751B7062A80036CD6C /* Box.framework */; };
+		1EEFF3791B7062A80036CD6C /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EEFF3761B7062A80036CD6C /* ReactiveCocoa.framework */; };
+		1EEFF37A1B7062A80036CD6C /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EEFF3771B7062A80036CD6C /* Result.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,9 @@
 		1EEFF3641B705F650036CD6C /* LoginWithReactiveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoginWithReactiveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EEFF3691B705F650036CD6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1EEFF36A1B705F650036CD6C /* LoginWithReactiveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithReactiveTests.swift; sourceTree = "<group>"; };
+		1EEFF3751B7062A80036CD6C /* Box.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Box.framework; path = Carthage/Build/iOS/Box.framework; sourceTree = "<group>"; };
+		1EEFF3761B7062A80036CD6C /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
+		1EEFF3771B7062A80036CD6C /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +49,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EEFF37A1B7062A80036CD6C /* Result.framework in Frameworks */,
+				1EEFF3781B7062A80036CD6C /* Box.framework in Frameworks */,
+				1EEFF3791B7062A80036CD6C /* ReactiveCocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +68,7 @@
 		1EEFF3461B705F650036CD6C = {
 			isa = PBXGroup;
 			children = (
+				1EEFF3741B7062900036CD6C /* CarthageFrameworks */,
 				1EEFF3511B705F650036CD6C /* LoginWithReactive */,
 				1EEFF3671B705F650036CD6C /* LoginWithReactiveTests */,
 				1EEFF3501B705F650036CD6C /* Products */,
@@ -112,6 +122,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		1EEFF3741B7062900036CD6C /* CarthageFrameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1EEFF3751B7062A80036CD6C /* Box.framework */,
+				1EEFF3761B7062A80036CD6C /* ReactiveCocoa.framework */,
+				1EEFF3771B7062A80036CD6C /* Result.framework */,
+			);
+			name = CarthageFrameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -122,6 +142,7 @@
 				1EEFF34B1B705F650036CD6C /* Sources */,
 				1EEFF34C1B705F650036CD6C /* Frameworks */,
 				1EEFF34D1B705F650036CD6C /* Resources */,
+				1EEFF37B1B7062BC0036CD6C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -206,6 +227,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1EEFF37B1B7062BC0036CD6C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Box.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ReactiveCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1EEFF34B1B705F650036CD6C /* Sources */ = {
@@ -340,6 +380,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = LoginWithReactive/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -350,6 +394,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = LoginWithReactive/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -409,6 +457,7 @@
 				1EEFF3701B705F650036CD6C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1EEFF3711B705F650036CD6C /* Build configuration list for PBXNativeTarget "LoginWithReactiveTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +466,7 @@
 				1EEFF3731B705F650036CD6C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

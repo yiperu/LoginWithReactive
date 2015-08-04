@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>38404651-1E6F-42F4-92A6-CBC8C4A5098B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>LoginWithReactive</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C660409B1353F552B807FAA7E28408FE3CB8286B</key>
+		<string>github.com:yiperu/LoginWithReactive.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>LoginWithReactive.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C660409B1353F552B807FAA7E28408FE3CB8286B</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:yiperu/LoginWithReactive.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C660409B1353F552B807FAA7E28408FE3CB8286B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C660409B1353F552B807FAA7E28408FE3CB8286B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>LoginWithReactive</string>
+		</dict>
+	</array>
+</dict>
+</plist>

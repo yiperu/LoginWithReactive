@@ -81,25 +81,55 @@ class ViewController: UIViewController {
 //        println(valor)
 //    }
 
-    self.usernameTextField.rac_textSignal().mapAs { (text: NSString) -> NSNumber in
-      let dd = text as String
-      return count(dd)
-      }.filterAs { (t:NSNumber) -> Bool in
-        let rr = t as Int
-        return rr > 3
-      }.subscribeNextAs { (valor: AnyObject) -> () in   // Tambien fuciona con AnyObject
-        println(valor)
+//    self.usernameTextField.rac_textSignal().mapAs { (text: NSString) -> NSNumber in
+//      let dd = text as String
+//      return count(dd)
+//      }.filterAs { (t:NSNumber) -> Bool in
+//        let rr = t as Int
+//        return rr > 3
+//      }.subscribeNextAs { (valor: AnyObject) -> () in   // Tambien fuciona con AnyObject
+//        println(valor)
+//    }
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+    
+    var validUsernameSignal: RACSignal = self.usernameTextField.rac_textSignal().mapAs { (text: NSString) -> AnyObject in
+      return self.isValidUsername(username: text as String)
+    }
+    
+    var validPasswordSignal: RACSignal = self.passwordTextField.rac_textSignal().mapAs {
+      (text: NSString) -> AnyObject in
+      return self.isValidPassword(password: text as String)
     }
 
+    validUsernameSignal.mapAs({ (xx: NSNumber) -> AnyObject in
+    return xx.boolValue ? UIColor.clearColor() : UIColor.yellowColor()
+    }) ~> RAC(self.usernameTextField, "backgroundColor")
+    
+    validPasswordSignal.mapAs({ (xx: NSNumber) -> AnyObject in
+      return xx.boolValue ? UIColor.clearColor() : UIColor.yellowColor()
+    }) ~> RAC(self.passwordTextField, "backgroundColor")
     
   }// Fin del viewDidLoad
-    
-    
+  
    override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
 
+  
+  
+  
+  // =  = = = = Funciones de Validacion:
+  func isValidUsername(#username:String) -> Bool{
+    return count(username) > 3
+  }
+  
+  func isValidPassword(#password:String) -> Bool{
+    return count(password) > 3
+  }
+  
+  
+  
 
 }
 

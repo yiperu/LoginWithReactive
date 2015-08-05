@@ -10,12 +10,6 @@ import UIKit
 
 import ReactiveCocoa
 
-
-
-
-
-
-
 class ViewController: UIViewController {
 
   
@@ -57,24 +51,51 @@ class ViewController: UIViewController {
 //    filteresUserName.subscribeNext { (valor: AnyObject!) -> Void in
 //      println(valor)
 //    }
-    // - - - -
-    // Fourth Example; (For now don't run)
-//        self.usernameTextField.rac_textSignal().filter { (text: String!) -> Bool in
-//            return count(text) > 3
-//          } .subscribeNext { (valor: String!) -> Void in
-//          println(valor)
-//        }
-    // - - - -
-    // Fifth Example; (For now don't run)
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+    // Fourth Example; (For now don't run) Aqui no deveria ser necesario castear las signales a String
+//    self.usernameTextField.rac_textSignal().filterAs { (text:AnyObject) -> Bool in
+//            var text1 = text as! String
+//              return count(text1) > 3
+//    }.subscribeNextAs { (text:String) -> () in
+//      println(count(text))
+//    }
+    // - - - - - - SI Funciona
+//    self.usernameTextField.rac_textSignal().filter { (valor: AnyObject!) -> Bool in
+//      var text = valor as! String
+//      return count(text) > 3
+//      }.subscribeNext { (valor: AnyObject!) -> Void in
+//        var text = valor as! String
+//        println(text)
+//    }
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+// Fift, using map:
+//  var validAgeSignal: RACSignal =
     
+//    self.usernameTextField.rac_textSignal().mapAs { (text: NSString) -> NSNumber in
+//      let dd = text as String
+//      return count(dd)
+//      }.filterAs { (t:NSNumber) -> Bool in
+//        let rr = t as Int
+//      return rr > 3
+//      }.subscribeNextAs { (valor: NSNumber) -> () in  // Tambien fuciona con NSNumber
+//        println(valor)
+//    }
+
+    self.usernameTextField.rac_textSignal().mapAs { (text: NSString) -> NSNumber in
+      let dd = text as String
+      return count(dd)
+      }.filterAs { (t:NSNumber) -> Bool in
+        let rr = t as Int
+        return rr > 3
+      }.subscribeNextAs { (valor: AnyObject) -> () in   // Tambien fuciona con AnyObject
+        println(valor)
+    }
 
     
+  }// Fin del viewDidLoad
     
     
-    
-  }
-
-  override func didReceiveMemoryWarning() {
+   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }

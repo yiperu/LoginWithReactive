@@ -101,11 +101,11 @@ class ViewController: UIViewController {
     }
 // - - --
     
-    validUsernameSignal.mapAs({ (xx: NSNumber) -> AnyObject in
+    validUsernameSignal.mapAs({ (xx: NSNumber) -> UIColor in   // Ojo Aqui return UIColor
       return xx.boolValue ? UIColor.clearColor() : UIColor.yellowColor()
     }) ~> RAC(self.usernameTextField, "backgroundColor")
     
-    validPasswordSignal.mapAs({ (xx: NSNumber) -> AnyObject in
+    validPasswordSignal.mapAs({ (xx: NSNumber) -> AnyObject in   // Ojo Aqui return AnyObject
       return xx.boolValue ? UIColor.clearColor() : UIColor.yellowColor()
     }) ~> RAC(self.passwordTextField, "backgroundColor")
     
@@ -124,7 +124,11 @@ class ViewController: UIViewController {
       self.signInButton.enabled = active1 as Bool
     }
 
-    
+    //Ahora crear el evento del Boton (TouchUpI)
+    self.signInButton.rac_signalForControlEvents(.TouchUpInside).subscribeNext {
+      (button) in
+        println("Clicked")
+    }
     
     
     

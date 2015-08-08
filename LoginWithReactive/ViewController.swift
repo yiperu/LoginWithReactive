@@ -91,23 +91,46 @@ class ViewController: UIViewController {
 //        println(valor)
 //    }
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-    
+// Creado las señales:
     var validUsernameSignal: RACSignal = self.usernameTextField.rac_textSignal().mapAs { (text: NSString) -> AnyObject in
-      return self.isValidUsername(username: text as String)
+      return self.isValidUsername(username: text as String) // Devuelve señal Bool
     }
     
-    var validPasswordSignal: RACSignal = self.passwordTextField.rac_textSignal().mapAs {
-      (text: NSString) -> AnyObject in
-      return self.isValidPassword(password: text as String)
+    var validPasswordSignal: RACSignal = self.passwordTextField.rac_textSignal().mapAs { (text: NSString) -> AnyObject in
+      return self.isValidPassword(password: text as String) // Devuelve señal Bool
     }
-
+// - - --
+    
     validUsernameSignal.mapAs({ (xx: NSNumber) -> AnyObject in
-    return xx.boolValue ? UIColor.clearColor() : UIColor.yellowColor()
+      return xx.boolValue ? UIColor.clearColor() : UIColor.yellowColor()
     }) ~> RAC(self.usernameTextField, "backgroundColor")
     
     validPasswordSignal.mapAs({ (xx: NSNumber) -> AnyObject in
       return xx.boolValue ? UIColor.clearColor() : UIColor.yellowColor()
     }) ~> RAC(self.passwordTextField, "backgroundColor")
+    
+    // Ahora Reducir:
+    let signUpActiveSignal = RACSignal.combineLatest([validUsernameSignal, validPasswordSignal]).map {
+      (tuple: AnyObject!) -> AnyObject in
+      let tupleRAC = tuple as! RACTuple
+      let validUsername = tupleRAC.first as! Bool
+      let validPassword = tupleRAC.second as! Bool
+      
+      return validUsername && validPassword
+    }
+    
+    signUpActiveSignal.subscribeNextAs { (active: AnyObject) -> () in
+      let active1: NSNumber = (active as? NSNumber)!
+      self.signInButton.enabled = active1 as Bool
+    }
+
+    
+    
+    
+    
+
+    
+    
     
   }// Fin del viewDidLoad
   

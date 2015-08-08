@@ -10,6 +10,7 @@
 		1E0447031B71242600685632 /* RAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0447021B71242600685632 /* RAC.swift */; };
 		1E0447051B71244D00685632 /* RACObserve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0447041B71244D00685632 /* RACObserve.swift */; };
 		1E0447071B71248B00685632 /* RACSignal+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0447061B71248B00685632 /* RACSignal+Extensions.swift */; };
+		1EA9F9B01B75D2750080079A /* SpiderMan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1EA9F9AF1B75D2750080079A /* SpiderMan.jpg */; };
 		1EEFF3551B705F650036CD6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEFF3541B705F650036CD6C /* AppDelegate.swift */; };
 		1EEFF3571B705F650036CD6C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEFF3561B705F650036CD6C /* ViewController.swift */; };
 		1EEFF35A1B705F650036CD6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EEFF3581B705F650036CD6C /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 		1E0447021B71242600685632 /* RAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RAC.swift; path = ExtensionForReactive/RAC.swift; sourceTree = "<group>"; };
 		1E0447041B71244D00685632 /* RACObserve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RACObserve.swift; sourceTree = "<group>"; };
 		1E0447061B71248B00685632 /* RACSignal+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "RACSignal+Extensions.swift"; path = "ExtensionForReactive/RACSignal+Extensions.swift"; sourceTree = "<group>"; };
+		1EA9F9AF1B75D2750080079A /* SpiderMan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SpiderMan.jpg; sourceTree = "<group>"; };
 		1EEFF34F1B705F650036CD6C /* LoginWithReactive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginWithReactive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EEFF3531B705F650036CD6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1EEFF3541B705F650036CD6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 		1E0447011B7123E800685632 /* ExtensionForReactive */ = {
 			isa = PBXGroup;
 			children = (
+				1EA9F9AF1B75D2750080079A /* SpiderMan.jpg */,
 				1E0447021B71242600685632 /* RAC.swift */,
 				1E0447041B71244D00685632 /* RACObserve.swift */,
 				1E0447061B71248B00685632 /* RACSignal+Extensions.swift */,
@@ -233,6 +236,7 @@
 				1EEFF35A1B705F650036CD6C /* Main.storyboard in Resources */,
 				1EEFF35F1B705F650036CD6C /* LaunchScreen.xib in Resources */,
 				1EEFF35C1B705F650036CD6C /* Images.xcassets in Resources */,
+				1EA9F9B01B75D2750080079A /* SpiderMan.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

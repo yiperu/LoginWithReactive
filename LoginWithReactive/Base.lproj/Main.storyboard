@@ -114,11 +114,36 @@
                         <outlet property="signInButton" destination="6GS-cU-Y2c" id="LQv-Z3-90f"/>
                         <outlet property="signInFailureText" destination="sQT-bM-JVg" id="SCu-iU-C0h"/>
                         <outlet property="usernameTextField" destination="QAQ-JI-oxS" id="XRr-j5-3Wh"/>
+                        <segue destination="wPZ-WN-boH" kind="push" identifier="signInSuccess" id="LAj-C6-B7o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1060" y="334"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="0h0-hG-AfS">
+            <objects>
+                <viewController id="wPZ-WN-boH" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2Sq-CK-NGl"/>
+                        <viewControllerLayoutGuide type="bottom" id="ECR-Vw-ctj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FFf-Sc-FJs">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SpiderMan.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="MM5-PX-fNV">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="iYo-21-UJI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IU3-kC-saQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1796" y="327"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="u0X-bf-40Q">
@@ -139,4 +164,7 @@
             <point key="canvasLocation" x="252" y="-359"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="SpiderMan.jpg" width="1920" height="1200"/>
+    </resources>
 </document>

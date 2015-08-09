@@ -114,7 +114,7 @@
                         <outlet property="signInButton" destination="6GS-cU-Y2c" id="LQv-Z3-90f"/>
                         <outlet property="signInFailureText" destination="sQT-bM-JVg" id="SCu-iU-C0h"/>
                         <outlet property="usernameTextField" destination="QAQ-JI-oxS" id="XRr-j5-3Wh"/>
-                        <segue destination="wPZ-WN-boH" kind="push" identifier="signInSuccess" id="LAj-C6-B7o"/>
+                        <segue destination="wPZ-WN-boH" kind="push" identifier="signInSuccess" id="0QP-6P-gWi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -133,11 +133,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SpiderMan.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="MM5-PX-fNV">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpiderMan.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="MM5-PX-fNV">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MM5-PX-fNV" firstAttribute="bottom" secondItem="ECR-Vw-ctj" secondAttribute="top" id="AzV-xn-CPA"/>
+                            <constraint firstItem="MM5-PX-fNV" firstAttribute="leading" secondItem="FFf-Sc-FJs" secondAttribute="leading" id="Umv-fN-Msv"/>
+                            <constraint firstItem="MM5-PX-fNV" firstAttribute="top" secondItem="FFf-Sc-FJs" secondAttribute="top" id="cWa-SZ-4w3"/>
+                            <constraint firstAttribute="trailing" secondItem="MM5-PX-fNV" secondAttribute="trailing" id="nNi-G1-k9b"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="iYo-21-UJI"/>
                 </viewController>

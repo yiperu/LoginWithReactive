@@ -78,9 +78,7 @@
 		1E0447011B7123E800685632 /* ExtensionForReactive */ = {
 			isa = PBXGroup;
 			children = (
-				1E0563091B770837006E65A9 /* Util */,
 				1EA9F9AF1B75D2750080079A /* SpiderMan.jpg */,
-				1E05630A1B770856006E65A9 /* DummySignInService.swift */,
 			);
 			name = ExtensionForReactive;
 			sourceTree = "<group>";
@@ -117,9 +115,11 @@
 		1EEFF3511B705F650036CD6C /* LoginWithReactive */ = {
 			isa = PBXGroup;
 			children = (
+				1E0563091B770837006E65A9 /* Util */,
 				1E0447011B7123E800685632 /* ExtensionForReactive */,
 				1EEFF3541B705F650036CD6C /* AppDelegate.swift */,
 				1EEFF3561B705F650036CD6C /* ViewController.swift */,
+				1E05630A1B770856006E65A9 /* DummySignInService.swift */,
 				1EEFF3581B705F650036CD6C /* Main.storyboard */,
 				1EEFF35B1B705F650036CD6C /* Images.xcassets */,
 				1EEFF35D1B705F650036CD6C /* LaunchScreen.xib */,

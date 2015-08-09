@@ -19,6 +19,17 @@ class ViewController: UIViewController {
   @IBOutlet weak var signInButton: UIButton!
   @IBOutlet weak var signInFailureText: UILabel!
   
+  // MARK: properties
+  
+  let signInService: DummySignInService;
+  
+  // MARK: initialisation
+  
+  required init(coder aDecoder: NSCoder) {
+    signInService = DummySignInService()
+    super.init(coder: aDecoder)
+  }
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -125,18 +136,41 @@ class ViewController: UIViewController {
     }
 
     //Ahora crear el evento del Boton (TouchUpI)
-    self.signInButton.rac_signalForControlEvents(.TouchUpInside).subscribeNext {
-      (button) in
-        println("Clicked")
+//    self.signInButton.rac_signalForControlEvents(.TouchUpInside).subscribeNext {
+//      (button) in
+//        println("Clicked ")
+//    }
+
+    let signUpCommand = RACCommand(enabled: signUpActiveSignal) {
+      (any) -> RACSignal in
+      return self.signInSignal()
     }
     
+    signUpCommand.executionSignals
+      .flattenMap {
+        (any) -> RACSignal in
+        any as! RACSignal
+      }.subscribeNextAs {
+        (success: NSNumber) in
+        self.handleSignInResult(success.boolValue)
+    }
     
     
 
     
-    
+    signInButton.rac_command = signUpCommand    
     
   }// Fin del viewDidLoad
+  
+  func handleSignInResult(success: Bool) {
+    if success {
+      self.performSegueWithIdentifier("signInSuccess", sender: self)
+    } else {
+      UIAlertView(title: "Sign in failure", message: "try harder next time ;-)",
+        delegate: nil, cancelButtonTitle: "OK").show()
+    }
+  }
+  
   
    override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
@@ -145,7 +179,23 @@ class ViewController: UIViewController {
 
   
   
+  // MARK: implementation
   
+  func signInSignal() -> RACSignal {
+    return RACSignal.createSignal {
+      (subscriber) -> RACDisposable! in
+      
+      println("Sign-in initiated")
+      self.signInService.signInWithUsername(self.usernameTextField.text,
+        password: self.passwordTextField.text) {
+          (success) in
+          println("Sign-in completed")
+          subscriber.sendNext(success)
+          subscriber.sendCompleted()
+      }
+      return nil
+    }
+  }
   // =  = = = = Funciones de Validacion:
   func isValidUsername(#username:String) -> Bool{
     return count(username) > 3
